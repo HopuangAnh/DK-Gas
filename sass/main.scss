@@ -1,0 +1,19 @@
+@import "../fonts/Averta/font.css";
+@import "./core/animation";
+@import "./page/header";
+@import "./page/home";
+@import "./page/footer";
+@import "./page/about-us";
+@import "./page/product";
+@import "./page/technical";
+@import "./page/news";
+@import "./page/posts";
+@import "./page/contact";
+@import "./libs/swiper";
+@import "./libs/resetCss";
+@import "./libs/aos";
+@import "./libs/animate";
+
+:root {
+  --animate-delay: 0.5s;
+}

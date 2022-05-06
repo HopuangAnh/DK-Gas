@@ -1,0 +1,252 @@
+.posts {
+  width: 100%;
+  &-blog {
+    width: 100%;
+    background-color: #F6F7F8;
+    .wrap {
+      padding: 80px 0;
+      display: flex;
+      gap: 30px;
+      .left {
+        width: calc( ( (100% - (11 * 30px)) / 12 ) * 8 + 240px );
+        &-slide {
+          width: 100%;
+          .postSlide {
+            padding-bottom: 40px;
+            cursor: pointer;
+          }
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+        }
+        &-content {
+          .text {
+            font-size: 1.4rem;
+            line-height: 20px;
+            color: #30355E;
+            p {
+              font-size: 1.4rem;
+              line-height: 20px;
+              color: #30355E;
+              margin-bottom: 30px;
+            }
+          }
+          .slogan {
+            width: 100%;
+            padding: 0 20px;
+            border-left: 2px solid #24B0EE;
+            margin-bottom: 30px;
+            p {
+              font-size: 1.4rem;
+              line-height: 20px;
+              color: #30355E;
+            }
+            .signature {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              white-space: nowrap;
+              &-title {
+                .name {
+                  font-size: 1.4rem;
+                  font-weight: 900;
+                  color: #0E2F56;
+                  text-transform: uppercase;
+                  margin: 5px 0;
+                  margin-left: auto;
+                  white-space: nowrap;
+                }
+                .link {
+                  margin-left: auto;
+                  font-size: 1.2rem;
+                  font-weight: 800;
+                  color: #118DF0;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                }
+              }
+            }
+          }
+        }
+        &-directional {
+          width: 100%;
+          padding-top: 20px;
+          border-top: 1px solid rgb(0, 0, 0, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .prev-page {
+            display: flex;
+            align-items: center;
+            .icon {
+              width: 24px;
+              height: 24px;
+              color: #24B0EE;
+              margin-right: 15px;
+            }
+            .title {
+              .heading {
+                font-size: 1.4rem;
+                font-weight: 800;
+                color: #0E2F56;
+                line-height: 19px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+                &-sub {
+                  font-size: 1.2rem;
+                  font-weight: 900;
+                  text-transform: uppercase;
+                  color: rgb(0, 0, 0, 0.2);
+                }
+              }
+            }
+          }
+          .next-page {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            .icon {
+              width: 24px;
+              height: 24px;
+              color: #24B0EE;
+              margin-left: 15px;
+              img {
+                width: 100%;
+                object-fit: cover;
+              }
+            }
+            .title {
+              text-align: right;
+              .heading {
+                font-size: 1.4rem;
+                font-weight: 800;
+                color: #0E2F56;
+                line-height: 19px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+                &-sub {
+                  font-size: 1.2rem;
+                  font-weight: 900;
+                  color: rgb(0, 0, 0, 0.4);
+                  text-transform: uppercase;
+                }
+              }
+            }
+          }
+        }
+      }
+      .right {
+        width: calc( ( (100% - (11 * 30px)) / 12 ) * 4 + 90px );
+        &-heading {
+          font-size: 2.4rem;
+          font-weight: 800;
+          color: #0E2F56;
+          line-height: 32px;
+        }
+        &-list {
+          .item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+            padding-top: 20px;
+            padding-bottom: 17px;
+            &:last-child {
+              border: none;
+            }
+            &-bg {
+              width: 70px;
+              height: 70px;
+              img {
+                width: 100%;
+                object-fit: cover;
+              }
+            }
+            &-title {
+              width: 75%;
+              padding-left: 15px;
+              .link {
+                font-size: 1.8rem;
+                font-weight: 600;
+                line-height: 20px;
+                color: #30355E;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+                &-sub {
+                  font-size: 1.2rem;
+                  font-weight: 900;
+                  text-transform: uppercase;
+                  color: rgb(0, 0, 0, 0.4);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .posts {
+    &-blog {
+      .wrap {
+        padding: 40px 0;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 900px) {
+  .posts {
+    &-blog {
+      .wrap {
+        padding: 15px 0;
+        flex-wrap: wrap;
+        .left {
+          width: 100%;
+        }
+        .right {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 650px) {
+  .posts {
+    &-blog {
+      .wrap .left-directional {
+        .prev-page {
+          width: calc(50% - 5px);
+          .title {
+            width: 100%;
+          }
+        }
+        .next-page {
+          width: calc(50% - 5px);
+          .title {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 900px) {
+  
+}
+@media only screen and (max-width: 900px) {
+  
+}
