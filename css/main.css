@@ -73,8 +73,7 @@
   color: #000;
 }
 .header.header-2 .header-content .header-menu-list .item .item-icon-more {
-  color: #000;
-  top: 51%;
+  filter: brightness(1) invert(0);
 }
 .header.header-2 .header-content .header-menu-list .item.active {
   background-color: rgba(0, 0, 0, 0.05);
@@ -242,6 +241,9 @@
 .header .header-content.sticky .header-menu-list .item {
   color: #000;
 }
+.header .header-content.sticky .header-menu-list .item-icon-more {
+  filter: brightness(1) invert(0);
+}
 .header .header-content.sticky .header-hotline {
   border-left: 1px solid #118DF0;
 }
@@ -300,24 +302,30 @@
   line-height: 30px;
   display: block;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
 .header-menu-list .item:hover {
   color: #0E2F56;
 }
 .header-menu-list .item:hover .item-icon-more {
-  transform: rotate(90deg);
+  transform: rotate(0);
+  filter: brightness(1) invert(0);
 }
 .header-menu-list .item:hover .minimenu {
   height: auto;
   opacity: 1;
 }
 .header-menu-list .item-icon-more {
-  position: absolute;
-  top: 55%;
-  left: calc(100% - 8px);
-  transform: translateY(-50%);
-  transform-origin: 85% 25%;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
   transition: 0.2s linear;
+  filter: brightness(0) invert(1);
+  transform: rotate(-90deg);
+}
+.header-menu-list .item-icon-more img {
+  width: 100%;
 }
 .header-menu-list .item .minimenu {
   position: absolute;
@@ -424,6 +432,10 @@
   user-select: none;
   width: 100%;
   height: 30px;
+}
+.header-language .arrow {
+  width: 12px;
+  height: 12px;
 }
 .header-language .select {
   position: relative;
@@ -611,9 +623,7 @@
     border-bottom: 1px solid #0E2F56;
   }
   .header .header-menu-list .item-icon-more {
-    top: 15px;
-    left: 65%;
-    transform: translateY(0);
+    filter: brightness(0) invert(1) !important;
   }
   .header .header-menu-list .item-link {
     line-height: 42px !important;
@@ -8466,10 +8476,6 @@ button {
 .animate__slideOutUp {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
-}
-
-:root {
-  --animate-delay: 0.5s;
 }
 
 /*# sourceMappingURL=main.css.map */
