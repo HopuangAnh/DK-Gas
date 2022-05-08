@@ -683,19 +683,19 @@
     background-color: #fff;
     border-radius: 4px;
     margin: 10px 0;
-    -webkit-transition: all 0.7s ease;
-    -moz-transition: all 0.7s ease;
-    -ms-transition: all 0.7s ease;
-    -o-transition: all 0.7s ease;
-    transition: all 0.7s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
   }
   .header .button-open.active .bar {
     background-color: #FFF;
-    -webkit-transition: all 0.7s ease;
-    -moz-transition: all 0.7s ease;
-    -ms-transition: all 0.7s ease;
-    -o-transition: all 0.7s ease;
-    transition: all 0.7s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
   }
   .header .button-open.active .bar.top {
     -webkit-transform: translateY(15px) rotateZ(45deg);
@@ -797,7 +797,7 @@
     align-items: unset;
     width: 0;
     overflow: hidden;
-    transition: 0.6s linear;
+    transition: 0.7s linear;
   }
   .header.header-2 .header-content .header-menu-list .item {
     margin: 0;
