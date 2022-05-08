@@ -1901,7 +1901,7 @@
 .product-market .wrap-tab {
   display: none;
   height: 0;
-  overflow: hidden;
+  overflow: unset;
   padding: 100px 0;
   transition: 0.3s linear;
 }
@@ -2545,6 +2545,10 @@
   line-height: 19px;
   text-transform: uppercase;
   color: #118DF0;
+  transition: 0.3s linear;
+}
+.news-top .wrap .outstanding .content-link:hover {
+  color: #0E2F56;
 }
 .news-top .wrap .outstanding-extra {
   width: calc((100% - 330px) / 12 * 4 + 90px);
@@ -2581,6 +2585,16 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  transition: 0.3s linear;
+}
+.news-mid .wrap-list .item:hover .content {
+  background-color: #118DF0;
+}
+.news-mid .wrap-list .item:hover .content-heading {
+  color: #fff;
+}
+.news-mid .wrap-list .item:hover .content-link {
+  color: #0E2F56;
 }
 .news-mid .wrap-list .item .bg {
   width: 100%;
@@ -2595,6 +2609,7 @@
 .news-mid .wrap-list .item .content {
   margin-top: auto;
   padding: 25px 20px;
+  transition: 0.3s linear;
 }
 .news-mid .wrap-list .item .content-date {
   font-size: 1.2rem;
@@ -2622,6 +2637,10 @@
   line-height: 19px;
   text-transform: uppercase;
   color: #118DF0;
+  transition: 0.3s linear;
+}
+.news-mid .wrap-list .item .content-link:hover {
+  color: #fff;
 }
 .news-mid .page-number {
   display: flex;
