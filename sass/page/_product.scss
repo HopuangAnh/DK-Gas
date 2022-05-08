@@ -1,5 +1,6 @@
 .product {
   width: 100%;
+  overflow: hidden;
   &-tab {
     width: 100%;
     .tab-panel {
@@ -53,12 +54,12 @@
     .wrap-tab {
       display: none;
       height: 0;
-      overflow: unset;
+      overflow: hidden;
       padding: 100px 0;
       transition: 0.3s linear;
       &.active {
         height: 100%;
-        overflow: auto;
+        overflow: unset;
         display: block;
         .product-market-top {
           .title {
@@ -306,8 +307,9 @@
       .wrap-tab {
         .technology {
           .product-market-list {
+            gap: 15px;
             .item {
-              width: calc( ( (100% - (11 * 30px)) / 12 ) * 4 + 90px );
+              width: calc( ( (100% - (11 * 15px)) / 12 ) * 4 + 45px );
             }
           }
         }

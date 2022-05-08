@@ -1846,6 +1846,7 @@
 }
 .product {
   width: 100%;
+  overflow: hidden;
 }
 .product-tab {
   width: 100%;
@@ -1901,13 +1902,13 @@
 .product-market .wrap-tab {
   display: none;
   height: 0;
-  overflow: unset;
+  overflow: hidden;
   padding: 100px 0;
   transition: 0.3s linear;
 }
 .product-market .wrap-tab.active {
   height: 100%;
-  overflow: auto;
+  overflow: unset;
   display: block;
 }
 .product-market .wrap-tab .technology .product-market-list .item {
@@ -2120,8 +2121,11 @@
   .product-tab .tab-panel-item .heading {
     font-size: 1.4rem;
   }
+  .product .product-market .wrap-tab .technology .product-market-list {
+    gap: 15px;
+  }
   .product .product-market .wrap-tab .technology .product-market-list .item {
-    width: calc((100% - 330px) / 12 * 4 + 90px);
+    width: calc((100% - 165px) / 12 * 4 + 45px);
   }
 }
 @media only screen and (max-width: 900px) {
