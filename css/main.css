@@ -32,6 +32,14 @@
     opacity: 1;
   }
 }
+@keyframes maxWidth {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
 .header {
   width: 100%;
   position: relative;
@@ -388,12 +396,15 @@
   font-size: 1.4rem;
 }
 .header .button-open {
+  cursor: pointer;
   display: none;
-  width: 50px;
-  height: 50px;
-  padding: 6px;
-  border-radius: 4px;
-  background-color: #118DF0;
+  width: auto;
+  margin: 0;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  -ms-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  transition: all 0.7s ease;
 }
 .header .button-open span {
   height: 5px;
@@ -562,20 +573,26 @@
   }
 }
 @media only screen and (max-width: 900px) {
-  .header .sticky .header-menu-list .item {
+  .header-content.sticky .header-menu-list .item {
     color: #fff !important;
+  }
+  .header-content.sticky .button-open .bar {
+    background-color: #118DF0;
+  }
+  .header-content.sticky .button-open.active .bar {
+    background-color: #fff;
   }
   .header .header-menu {
     background-color: #118DF0;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
     height: 100vh;
-    width: 0;
+    width: auto;
     opacity: 0;
-    overflow: hidden;
-    transition: 0.3s linear;
+    transform: translateX(calc(-100% - 2px)) !important;
+    transition: 0.3s ease-in-out;
     user-select: none;
   }
   .header .header-menu-bg {
@@ -585,16 +602,26 @@
     width: 0;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    transition: 0.4s linear;
+    transition: 0.4s ease-in-out;
   }
   .header .header-menu.active {
-    width: auto;
+    transform: translateX(0) !important;
     opacity: 1;
     user-select: all;
-    overflow: unset;
+  }
+  .header .header-menu.active .header-menu-logo {
+    width: 102px;
   }
   .header .header-menu.active .header-menu-bg {
     width: 100vw;
+  }
+  .header .header-menu.active .header-menu-list {
+    width: 100%;
+    background-color: #118DF0;
+    transition: 0.3s linear;
+  }
+  .header .header-menu.active .header-menu-list .item {
+    width: 100%;
   }
   .header .header-menu.active .header-menu-list .item-link {
     user-select: all;
@@ -602,10 +629,11 @@
   }
   .header .header-menu-logo {
     display: block;
-    width: 102px;
+    width: 0;
     height: 70px;
     margin-bottom: 30px;
     margin-left: 15px;
+    transition: 0.3s linear;
   }
   .header .header-menu-logo .img {
     width: 100%;
@@ -615,12 +643,18 @@
     flex-direction: column;
     text-align: left;
     align-items: unset;
+    width: 0;
+    overflow: hidden;
+    transition: 0.3s linear;
   }
   .header .header-menu-list .item {
+    width: 0;
+    overflow: hidden;
     margin: 0;
     padding: 0 12px;
     color: #fff;
     border-bottom: 1px solid #0E2F56;
+    transition: 0.3s linear;
   }
   .header .header-menu-list .item-icon-more {
     filter: brightness(0) invert(1) !important;
@@ -641,6 +675,44 @@
     display: block;
     position: relative;
     z-index: 2;
+  }
+  .header .button-open .bar {
+    display: block;
+    height: 5px;
+    width: 50px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 10px 0;
+    -webkit-transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+    -ms-transition: all 0.7s ease;
+    -o-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+  }
+  .header .button-open.active .bar {
+    background-color: #FFF;
+    -webkit-transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+    -ms-transition: all 0.7s ease;
+    -o-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+  }
+  .header .button-open.active .bar.top {
+    -webkit-transform: translateY(15px) rotateZ(45deg);
+    -moz-transform: translateY(15px) rotateZ(45deg);
+    -ms-transform: translateY(15px) rotateZ(45deg);
+    -o-transform: translateY(15px) rotateZ(45deg);
+    transform: translateY(15px) rotateZ(45deg);
+  }
+  .header .button-open.active .bar.bottom {
+    -webkit-transform: translateY(-15px) rotateZ(-45deg);
+    -moz-transform: translateY(-15px) rotateZ(-45deg);
+    -ms-transform: translateY(-15px) rotateZ(-45deg);
+    -o-transform: translateY(-15px) rotateZ(-45deg);
+    transform: translateY(-15px) rotateZ(-45deg);
+  }
+  .header .button-open.active .bar.middle {
+    width: 0;
   }
   .header .header-hotline {
     margin: 0;
@@ -670,10 +742,9 @@
     left: 0;
     z-index: 2;
     height: 100vh;
-    width: 0;
+    width: auto;
     opacity: 0;
-    overflow: hidden;
-    transition: 0.3s linear;
+    transition: 0.7s ease-in-out;
     user-select: none;
   }
   .header.header-2 .header-content .header-menu-bg {
@@ -683,23 +754,38 @@
     width: 0;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    transition: 0.4s linear;
+    transition: 0.7s ease-in-out;
   }
   .header.header-2 .header-content .header-menu.active {
-    width: auto;
+    transform: translateX(0) !important;
     opacity: 1;
     user-select: all;
-    overflow: unset;
+  }
+  .header.header-2 .header-content .header-menu.active .header-menu-logo {
+    width: 102px;
   }
   .header.header-2 .header-content .header-menu.active .header-menu-bg {
     width: 100vw;
   }
+  .header.header-2 .header-content .header-menu.active .header-menu-list {
+    width: 100%;
+    background-color: #118DF0;
+    transition: 0.3s linear;
+  }
+  .header.header-2 .header-content .header-menu.active .header-menu-list .item {
+    width: 100%;
+  }
+  .header.header-2 .header-content .header-menu.active .header-menu-list .item-link {
+    user-select: all;
+    pointer-events: all;
+  }
   .header.header-2 .header-content .header-menu-logo {
     display: block;
-    width: 102px;
+    width: 0;
     height: 70px;
     margin-bottom: 30px;
     margin-left: 15px;
+    transition: 0.6s linear;
   }
   .header.header-2 .header-content .header-menu-logo .img {
     width: 100%;
@@ -709,6 +795,9 @@
     flex-direction: column;
     text-align: left;
     align-items: unset;
+    width: 0;
+    overflow: hidden;
+    transition: 0.6s linear;
   }
   .header.header-2 .header-content .header-menu-list .item {
     margin: 0;
@@ -734,6 +823,12 @@
   .header.header-2 .header-content .header-menu-list .item .minimenu-item-link {
     background-color: transparent;
     color: #fff;
+  }
+  .header.header-2 .header-content .button-open .bar {
+    background-color: #118DF0;
+  }
+  .header.header-2 .header-content .button-open.active .bar {
+    background-color: #fff;
   }
   .header.header-2 .button-open {
     display: block;
@@ -1988,7 +2083,7 @@
   justify-content: center;
   padding: 5px;
   border-radius: 22px;
-  transition: 0.3s linear;
+  transition: 0.2s linear;
   background-color: #fff;
   position: absolute;
   top: 0;

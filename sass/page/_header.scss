@@ -390,16 +390,15 @@
     }
   }
   .button-open {
+    cursor: pointer;
     display: none;
-    // position: absolute;
-    // z-index: 1;
-    // top: 5vh;
-    // right: 24px;
-    width: 50px;
-    height: 50px;
-    padding: 6px;
-    border-radius: 4px;
-    background-color: #118DF0;
+    width: auto;
+    margin: 0;
+    -webkit-transition: all .7s ease;
+    -moz-transition: all .7s ease;
+    -ms-transition: all .7s ease;
+    -o-transition: all .7s ease;
+    transition: all .7s ease;
     span {
       height: 5px;
       width: 40px;
@@ -587,25 +586,40 @@
 }
 @media only screen and (max-width: 900px) {
   .header {
-    .sticky {
-      .header-menu-list {
-        .item {
-          color: #fff !important;
+    &-content {
+      &.sticky {
+        .header-menu-list {
+          .item {
+            color: #fff !important;
+          }
+        }
+        .button-open {
+          .bar {
+            background-color: #118DF0;
+          }
+          &.active {
+            
+            .bar {
+              background-color: #fff;
+            }
+          }
         }
       }
+
     }
     .header-menu {
       // display: none;
       background-color: #118DF0;
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       z-index: 2;
       height: 100vh;
-      width: 0;
+      width: auto;
       opacity: 0;
-      overflow: hidden;
-      transition: 0.3s linear;
+      // overflow: hidden;
+      transform: translateX(calc(-100% - 2px )) !important;
+      transition: 0.3s ease-in-out;
       user-select: none;
       &-bg {
         position: absolute;
@@ -614,17 +628,26 @@
         width: 0;
         height: 100%;
         background-color: rgb( 0, 0, 0, 0.3);
-        transition: 0.4s linear;
+        transition: 0.4s ease-in-out;
       }
       &.active {
-        width: auto;
+        transform: translateX(0) !important;
         opacity: 1;
         user-select: all;
-        overflow: unset;
+        // overflow: unset;
+        .header-menu-logo {
+          width: 102px;
+        }
         .header-menu-bg {
           width: 100vw;
         }
         .header-menu-list {
+          width: 100%;
+          background-color: #118DF0;
+          transition: 0.3s linear;
+          .item {
+            width: 100%;
+          }
           .item-link {
             user-select: all;
             pointer-events: all;
@@ -633,24 +656,33 @@
       }
       &-logo {
         display: block;
-        width: 102px;
+        // width: 102px;
+        width: 0;
         height: 70px;
         margin-bottom: 30px;
         margin-left: 15px;
+        transition: 0.3s linear;
         .img {
           width: 100%;
           height: auto;
         }
       }
       &-list {
+        // background-color: #118DF0;
         flex-direction: column;
         text-align: left;
         align-items: unset;
+        width: 0;
+        overflow: hidden;
+        transition: 0.3s linear;
         .item {
+          width: 0;
+          overflow: hidden;
           margin: 0;
           padding: 0 12px;
           color: #fff;
           border-bottom: 1px solid #0E2F56;
+          transition: 0.3s linear;
           &-icon-more {
             filter: brightness(0) invert(1) !important;
           }
@@ -676,6 +708,46 @@
       display: block;
       position: relative;
       z-index: 2;
+      .bar {
+        display: block;
+        height: 5px;
+        width: 50px;
+        background-color: #fff;
+        border-radius: 4px;
+        margin: 10px 0;
+        -webkit-transition: all .7s ease;
+        -moz-transition: all .7s ease;
+        -ms-transition: all .7s ease;
+        -o-transition: all .7s ease;
+        transition: all .7s ease;
+      }
+      &.active {
+        .bar {
+          background-color: #FFF;
+          -webkit-transition: all .7s ease;
+          -moz-transition: all .7s ease;
+          -ms-transition: all .7s ease;
+          -o-transition: all .7s ease;
+          transition: all .7s ease;
+          &.top {
+            -webkit-transform: translateY(15px) rotateZ(45deg);
+            -moz-transform: translateY(15px) rotateZ(45deg);
+            -ms-transform: translateY(15px) rotateZ(45deg);
+            -o-transform: translateY(15px) rotateZ(45deg);
+            transform: translateY(15px) rotateZ(45deg);
+          }
+          &.bottom {
+            -webkit-transform: translateY(-15px) rotateZ(-45deg);
+            -moz-transform: translateY(-15px) rotateZ(-45deg);
+            -ms-transform: translateY(-15px) rotateZ(-45deg);
+            -o-transform: translateY(-15px) rotateZ(-45deg);
+            transform: translateY(-15px) rotateZ(-45deg);
+          }
+          &.middle {
+            width: 0;
+          }
+        }
+      }
     }
     .header-hotline {
       margin: 0;
@@ -714,10 +786,9 @@
           left: 0;
           z-index: 2;
           height: 100vh;
-          width: 0;
+          width: auto;
           opacity: 0;
-          overflow: hidden;
-          transition: 0.3s linear;
+          transition: 0.7s ease-in-out;
           user-select: none;
           &-bg {
             position: absolute;
@@ -726,23 +797,40 @@
             width: 0;
             height: 100%;
             background-color: rgb( 0, 0, 0, 0.3);
-            transition: 0.4s linear;
+            transition: 0.7s ease-in-out;
           }
           &.active {
-            width: auto;
+            transform: translateX(0) !important;
             opacity: 1;
             user-select: all;
-            overflow: unset;
+            // overflow: unset;
+            .header-menu-logo {
+              width: 102px;
+            }
             .header-menu-bg {
               width: 100vw;
+            }
+            .header-menu-list {
+              width: 100%;
+              background-color: #118DF0;
+              transition: 0.3s linear;
+              .item {
+                width: 100%;
+              }
+              .item-link {
+                user-select: all;
+                pointer-events: all;
+              }
             }
           }
           &-logo {
             display: block;
-            width: 102px;
+            // width: 102px;
+            width: 0;
             height: 70px;
             margin-bottom: 30px;
             margin-left: 15px;
+            transition: 0.6s linear;
             .img {
               width: 100%;
               height: auto;
@@ -752,6 +840,9 @@
             flex-direction: column;
             text-align: left;
             align-items: unset;
+            width: 0;
+            overflow: hidden;
+            transition: 0.6s linear;
             .item {
               margin: 0;
               padding: 0 12px;
@@ -779,6 +870,16 @@
                   color: #fff;
                 }
               }
+            }
+          }
+        }
+        .button-open {
+          .bar {
+            background-color: #118DF0;
+          }
+          &.active {
+            .bar {
+              background-color: #fff;
             }
           }
         }
